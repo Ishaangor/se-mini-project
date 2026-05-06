@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News4U - Recommendations</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar h1 {
+            margin: 0;
+            font-size: 28px;
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #4facfe;
+        }
+
+        .twitter-box {
+            text-align: center;
+            padding: 50px 20px;
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .twitter-box label {
+            font-size: 18px;
+            font-weight: 300;
+            margin-bottom: 20px;
+            display: block;
+            color: #94a3b8;
+        }
+
+        .twitter-box input {
+            padding: 15px 30px;
+            width: 300px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(0, 0, 0, 0.2);
+            color: white;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .twitter-box input:focus {
+            border-color: #4facfe;
+            box-shadow: 0 0 15px rgba(79, 172, 254, 0.4);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .glass-card {
+            background: rgba(30, 34, 40, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .glass-card h3 {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 24px;
+            font-weight: 800;
+            margin: 0 0 15px 0;
+            letter-spacing: 1px;
+        }
+
+        .glass-card p {
+            color: #b0bec5;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .glass-card img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .topics-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .topic-pill {
+            background: rgba(79, 172, 254, 0.2);
+            color: #4facfe;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid rgba(79, 172, 254, 0.4);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>News4U</h1>
+        <div class="nav-links">
+            <a href="#">Recommendations</a>
+            <a href="#">How It Works</a>
+            <a href="#">About Me</a>
+        </div>
+    </nav>
+
+    <div class="twitter-box">
+        <label>Hello @user, welcome back! Start exploring your personalized topics:</label>
+        <input type="text" placeholder="Search your twitter account...">
+    </div>
+
+    <div class="container">
+        <!-- Topics Card -->
+        <div class="glass-card" style="grid-column: 1 / -1; max-width: 600px; margin: 0 auto 30px auto;">
+            <h3>Topics Picked For You</h3>
+            <p>According to your retweeting history, here are some topics you might be interested in.</p>
+            <div class="topics-grid">
+                <span class="topic-pill" style="font-size: 20px; padding: 12px 24px;">Technology</span>
+                <span class="topic-pill" style="font-size: 18px; padding: 10px 20px;">AI</span>
+                <span class="topic-pill">Machine Learning</span>
+                <span class="topic-pill">Data Science</span>
+                <span class="topic-pill">Web Dev</span>
+                <span class="topic-pill" style="font-size: 12px;">Finance</span>
+                <span class="topic-pill" style="font-size: 12px;">Crypto</span>
+            </div>
+        </div>
+
+        <!-- News Article 1 -->
+        <div class="glass-card">
+            <h3>The Future of AI</h3>
+            <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop" alt="AI">
+            <p>Artificial Intelligence is transforming the landscape of technology at an unprecedented pace. Learn how deep learning models are revolutionizing software.</p>
+            <a href="#" style="color: #4facfe; text-decoration: none; font-weight: 600;">Read More →</a>
+        </div>
+
+        <!-- News Article 2 -->
+        <div class="glass-card">
+            <h3>Web Development 2026</h3>
+            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=600&auto=format&fit=crop" alt="Web Dev">
+            <p>Modern frontend frameworks and glassmorphism are leading the charge in user interface design. Stay ahead of the curve with these new trends.</p>
+            <a href="#" style="color: #4facfe; text-decoration: none; font-weight: 600;">Read More →</a>
+        </div>
+
+        <!-- News Article 3 -->
+        <div class="glass-card">
+            <h3>Machine Learning Insights</h3>
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop" alt="Data">
+            <p>Data science continues to evolve. New clustering algorithms are making it easier to parse massive datasets and extract meaningful communities.</p>
+            <a href="#" style="color: #4facfe; text-decoration: none; font-weight: 600;">Read More →</a>
+        </div>
+    </div>
+
+</body>
+</html>
